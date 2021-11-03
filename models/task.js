@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
     id: String,
-    content: String
+    content: String,
+    managedBy: String,
 }, { timestamps: true });
 
 // Export the result of compiling the Schema into a model

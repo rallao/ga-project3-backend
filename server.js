@@ -42,6 +42,9 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get('/api', (req, res) => {
+    res.json({message: 'Welcome to the React API'})
+});
 
 app.use('/api/tasks', tasksController);
 
@@ -58,4 +61,4 @@ app.get('/api/*', (req, res) => {
 // We chose a non 3000 port because react dev server uses 3000 the highest possible port is 65535
 // Why? cause it's the largest 16-bit integer, fun fact!
 // But because we are "elite" coders we will use 1337
-app.listen(3001, () => console.log("Listening on port 1337"));
+app.listen(3001, () => console.log(`Listening on port: 3001`));
