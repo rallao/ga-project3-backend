@@ -36,6 +36,16 @@ router.delete('/:id', function (req, res) {
     })
   })
 
+// Update Route
+router.put('/', async (req, res) => {
+    try {
+        console.log(req.body);
+        res.json(await Task.updateOne({_id:req.body.id}, req.body));
+    } catch (error) {
+        console.log(error);
+        res.status(401).json({message: 'Please login'})
+    }
+})
 
 // Export the router
 module.exports = router;
