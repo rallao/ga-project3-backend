@@ -6,7 +6,7 @@ const Task = require('../models/task');
 const router = express.Router();
 
 
-// Define routes/controllers
+// Define routes and controllers
 
 // Index Route
 router.get('/', async (req, res) => {
@@ -26,6 +26,16 @@ router.post('/', async (req, res) => {
     }
 })
 
-// Export the router
+// Delete Route
+router.delete('/:id', function (req, res) {
+    console.log("DELETE review", req.params.id)
+    Task.findByIdAndRemove(req.params.id).then((task) => {
+      res.send(task);
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  })
 
+
+// Export the router
 module.exports = router;
